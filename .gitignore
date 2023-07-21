@@ -1,3 +1,5 @@
+.idea/
+target/
 usersapp/.venv
 usersapp/usersapp.egg-info
 **/__pycache__

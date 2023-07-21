@@ -1,21 +1,36 @@
-package com.challenge.demo;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+package com.challenge.demo.persistence;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
-@Embeddable
 public class WorkHourId implements Serializable {
-    @ManyToOne @JoinColumn(name = "user_id")
     private User user;
+    private LocalDate date;
 
-    @Column(name = "date")
-    private Date date;
+    public WorkHourId() {
+    }
+
+    public WorkHourId(User user, LocalDate date) {
+        this.user = user;
+        this.date = date;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 
     @Override
     public boolean equals(Object o) {

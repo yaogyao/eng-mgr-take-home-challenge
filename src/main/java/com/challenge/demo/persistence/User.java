@@ -1,8 +1,8 @@
-package com.challenge.demo;
+package com.challenge.demo.persistence;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -15,27 +15,27 @@ public class User {
     private Integer id;
 
     @Column(name = "manager_id")
-    private Long managerId;
+    private Integer managerId;
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "active")
+    @Column(name = "active", nullable = false)
     private Boolean active = true;
 
-    @Column(name = "created_at")
-    private LocalDate createTime;
+    @Column(name = "created_at", nullable = false)
+    private LocalDateTime createTime = LocalDateTime.now();
 
     public User() {
     }
 
-    public User(Integer id, Long managerId, String firstName, String lastName, String email, Boolean active, LocalDate createTime) {
+    public User(Integer id, Integer managerId, String firstName, String lastName, String email, Boolean active, LocalDateTime createTime) {
         this.id = id;
         this.managerId = managerId;
         this.firstName = firstName;
@@ -45,7 +45,7 @@ public class User {
         this.createTime = createTime;
     }
 
-    public User(Long managerId, String firstName, String lastName, String email, Boolean active, LocalDate createTime) {
+    public User(Integer managerId, String firstName, String lastName, String email, Boolean active, LocalDateTime createTime) {
         this.managerId = managerId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -62,11 +62,11 @@ public class User {
         this.id = id;
     }
 
-    public Long getManagerId() {
+    public Integer getManagerId() {
         return managerId;
     }
 
-    public void setManagerId(Long managerId) {
+    public void setManagerId(Integer managerId) {
         this.managerId = managerId;
     }
 
@@ -102,11 +102,11 @@ public class User {
         this.active = active;
     }
 
-    public LocalDate getCreateTime() {
+    public LocalDateTime getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(LocalDate createTime) {
+    public void setCreateTime(LocalDateTime createTime) {
         this.createTime = createTime;
     }
 

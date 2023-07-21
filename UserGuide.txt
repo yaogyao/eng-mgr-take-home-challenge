@@ -1,0 +1,16 @@
+0, checkout the repo, "cd" to the repo directory
+
+1, build and test
+mvn clean package
+
+check to make sure all tests passed
+
+2, build docker image
+docker build -t demo .
+
+"demo" is the image tag used in the docker-compose.yml
+
+3, bring up the app via docker-compose.yml
+docker compose up -d
+
+4, run http requests against http://localhost:3000/, following the README.MD

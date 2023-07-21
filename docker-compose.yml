@@ -12,3 +12,12 @@ services:
       - ./sql/data.sql:/docker-entrypoint-initdb.d/2-data.sql
     env_file:
       - .env.dev
+
+  app:
+    container_name: take-home-demo
+    image: demo
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://take-home-db/userhours_dev

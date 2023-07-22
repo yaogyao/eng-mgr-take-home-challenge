@@ -13,4 +13,11 @@ docker build -t demo .
 3, bring up the app via docker-compose.yml
 docker compose up -d
 
+make sure to clean up any previous setup by "docker compose down"
+
 4, run http requests against http://localhost:3000/, following the README.MD
+
+Note:
+if you want to run and test the app in IDE (e.g. intellj idea), you will need to comment out (disable) the
+service.app section, or change the port in application.properties to differentiate the port 3000 used by
+the docker-compose.yml
